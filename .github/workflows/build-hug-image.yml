@@ -2,14 +2,14 @@ name: Build huggingface Image
 
 on:
   push:
-    branches: [ hug ]
+    branches: [ main ]
     paths:
       - 'Dockerfile'
       - 'index.js'
       - 'package.json'
       - 'index.html'
   pull_request:
-    branches: [ hug ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: hug 
+          ref: main 
           fetch-depth: 0  # <--- 加上这一行，表示下载完整的历史记录
 
       - name: Log in to GitHub Container Registry
